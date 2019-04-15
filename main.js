@@ -1,8 +1,3 @@
-function getRandom(){
-    var randomNum = Math.random().toString(32).substring(2,5) + Math.random().toString(32).substring(2,5);
-    return randomNum;
-}
-
 function getURL(){
 var url = document.getElementById("urlinput").value;
 var protocol = url.startsWith("https://") || url.startsWith("http://");
@@ -13,8 +8,9 @@ if(!protocol){
  return url;
 }
 
-function generateHash(){
- if(window.location.hash===""){
-     window.location.hash=getRandom();
- }
+function generateShortURL(){
+    var url = getURL();
+    var shorturl = btoa(url).substring(0,7);
+    
+
 }
