@@ -15,18 +15,16 @@ connection.connect(function(error){
  }
  else{
      console.log('Connection established');
- }
-});
-
-app.get('/',function(req,res){
-    connection.query("select * from student",function(error,rows,fields){
+     connection.query("select * from student",function(error,rows,fields){
         if(error){
             console.log("Error Occurred in fetching data from database");
         }
         else{
             console.log(rows);
+            console.log(fields);
         }
     });
+ }
 });
 
 app.listen(3306);
