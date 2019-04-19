@@ -20,10 +20,11 @@ var connection = mysql.createConnection({
 
 var checkURL = function(lurl){
    return new Promise(function(resolve,reject){
-        var sql = "select name from student where email=?";
+        var sql = "select shorturl from url where longurl=?";
         connection.query(sql,lurl,function(error,rows,fields){
             if(error){
                 console.log("Error Occurred in fetching data from database");
+                reject("Error Occurred in fetching data from database");
             }
             else{
                 if(rows.length!=0){
@@ -41,10 +42,18 @@ var insertShortURL = function(longurl,shorturl){
    return new Promise(function(resolve,reject){
        var sql = "insert into url values (?,?)";
        connection.query(sql,[longurl,shorturl],function(error,rows,fields){
-           
+           if(error){
+               console.log("Insertion Unsuccessful");
+               reject("Insertion Unsuccessful");
+           }
+           else{
+               console.log("Short url inserted");
+               resolve("Short url inserted");
+           }
        });
    });
 }
 module.exports.connection = connection;
-module.exports.checkURLr = checkURL;
+module.exports.checkURL = checkURL;
+module.exports.insertShortURL = insertShortURL;
 app.listen(3310);

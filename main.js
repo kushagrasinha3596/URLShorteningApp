@@ -12,7 +12,7 @@ if(!protocol){
 
 function generateShortURL(){
     var longurl = getURL();
-    var shorturl = btoa(url).substring(0,7);
+    var shorturl = btoa(longurl).substring(0,7);
 
     //establishing database connection
     // res.connection.connect();
@@ -21,7 +21,9 @@ function generateShortURL(){
      res.checkURL(longurl).then(function(data){
          console.log("Short URL already exists and it is: "+data);
      },function(message){
-         res.insertShortURL(longurl,shorturl);
+         res.insertShortURL(longurl,shorturl)
+         .then(function(success){console.log("Short URL inserted successfuly");},
+              function(failure){console.log("Short URL insertion unsuccessful");});
      });
     }
 
