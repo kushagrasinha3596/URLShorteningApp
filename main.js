@@ -7,7 +7,7 @@ if(!protocol){
     return url;
  }
  return url;
-}
+} 
 
 function generateShortURL(){
     //var longurl = getURL();
