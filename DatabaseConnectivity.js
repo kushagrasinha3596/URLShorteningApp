@@ -28,7 +28,7 @@ var checkURL = function(lurl){
             }
             else{
                 if(rows.length!=0){
-                    console.log("No existing data found");
+                    console.log("No existing data foundn");
                  resolve(rows[0].name);
                 }
                 else{
