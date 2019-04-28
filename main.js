@@ -1,5 +1,4 @@
 var res = module.require("./DatabaseConnectivity");
-
 function getURL(){
 var url = document.getElementById("urlinput").value;
 var protocol = url.startsWith("https://") || url.startsWith("http://");
@@ -11,8 +10,9 @@ if(!protocol){
 }
 
 function generateShortURL(){
-    var longurl = getURL();
-    var shorturl = btoa(longurl).substring(0,7);
+    //var longurl = getURL();
+    var longurl = "www.w3schools.com";
+    var shorturl = longurl.toString('base64').substring(0,7);
 
     //establishing database connection
     // res.connection.connect();

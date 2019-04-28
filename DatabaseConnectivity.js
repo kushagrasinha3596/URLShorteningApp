@@ -28,6 +28,7 @@ var checkURL = function(lurl){
             }
             else{
                 if(rows.length!=0){
+                    console.log("No existing data found");
                  resolve(rows[0].name);
                 }
                 else{
@@ -40,6 +41,7 @@ var checkURL = function(lurl){
 
 var insertShortURL = function(longurl,shorturl){
    return new Promise(function(resolve,reject){
+       console.log("Kushagra");
        var sql = "insert into url values (?,?)";
        connection.query(sql,[longurl,shorturl],function(error,rows,fields){
            if(error){

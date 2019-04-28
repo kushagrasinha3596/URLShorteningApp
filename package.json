@@ -4,7 +4,8 @@
   "description": "A simple url shortening application",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify DatabaseConnectivity.js -o DatabaseConnectivityBrowserify.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/kushagrasinha3596/URLShorteningApp/issues"
   },
-  "homepage": "https://github.com/kushagrasinha3596/URLShorteningApp#readme"
+  "homepage": "https://github.com/kushagrasinha3596/URLShorteningApp#readme",
+  "dependencies": {
+    "browserify": "^16.2.3",
+    "express": "^4.16.4",
+    "module": "^1.2.5",
+    "mysql": "^2.17.1"
+  }
 }
